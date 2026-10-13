@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bfyc3usufowc0"]
+
+[ext_resource type="FontFile" uid="uid://due6jbyye53ld" path="res://Flappy Bird Assets/Fonts/font_score.ttf" id="1_6s6tj"]
+
+[resource]
+font = ExtResource("1_6s6tj")
+font_size = 32
+font_color = Color(0.945098, 0.8, 0.211765, 1)
+outline_size = 16
+outline_color = Color(0.352063, 0.32322, 0.103682, 1)

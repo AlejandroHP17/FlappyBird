@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="flappybird_back">Volver</string>
+    <string name="flappybird_tap_hint">Toca para saltar</string>
+    <string name="flappybird_tap_to_start">Toca para empezar</string>
+    <string name="flappybird_score_label">Puntos: %1$d</string>
+    <string name="flappybird_best_label">Mejor: %1$d</string>
+    <string name="flappybird_play_again">Jugar de nuevo</string>
+</resources>

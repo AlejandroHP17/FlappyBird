@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://trkcttsq2cmy"]
+
+[ext_resource type="Script" uid="uid://dmv6r8jjww417" path="res://scenes/ground/ground.gd" id="1_rrkwn"]
+[ext_resource type="Texture2D" uid="uid://cvjp578yskg1i" path="res://Flappy Bird Assets/Sprites/groundSnow.png" id="2_xmv3o"]
+[ext_resource type="AudioStream" uid="uid://dnm5b6pojwpjl" path="res://Flappy Bird Assets/Audio/sfx_die.wav" id="3_xmv3o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8de3"]
+size = Vector2(808, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmnfs"]
+size = Vector2(808, 68)
+
+[node name="Ground" type="Node2D"]
+z_index = 1
+script = ExtResource("1_rrkwn")
+
+[node name="Ground_1" type="Area2D" parent="."]
+position = Vector2(404, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground_1"]
+unique_name_in_owner = true
+texture = ExtResource("2_xmv3o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground_1"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_t8de3")
+
+[node name="Ground_2" type="Area2D" parent="."]
+position = Vector2(1212, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground_2"]
+texture = ExtResource("2_xmv3o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground_2"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_mmnfs")
+debug_color = Color(0.967876, 0.101312, 0.378667, 0.42)
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xmv3o")
+bus = &"SFX"
+
+[connection signal="body_entered" from="Ground_1" to="." method="_on_ground_body_entered"]
+[connection signal="body_entered" from="Ground_2" to="." method="_on_ground_body_entered"]

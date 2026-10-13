@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnmuy30pqqdbr"]
+
+[ext_resource type="Texture2D" uid="uid://duiy5x8u0hr7r" path="res://Flappy Bird Assets/Sprites/background.png" id="1_hyk8p"]
+[ext_resource type="Script" uid="uid://da6f3prjcji" path="res://scenes/main/main.gd" id="1_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://3jdkp0mccn71" path="res://scenes/player/player.tscn" id="2_iuonh"]
+[ext_resource type="PackedScene" uid="uid://dup7hgravpbwu" path="res://scenes/extra/spawner.tscn" id="4_l3cfh"]
+[ext_resource type="PackedScene" uid="uid://trkcttsq2cmy" path="res://scenes/ground/ground.tscn" id="5_6q06x"]
+[ext_resource type="PackedScene" uid="uid://dopq1f38ma8uq" path="res://scenes/game_ui/game_ui.tscn" id="6_ow5a4"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_k2fmo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -45)
+scale = Vector2(2, 2)
+texture = ExtResource("1_hyk8p")
+centered = false
+
+[node name="Player" parent="." instance=ExtResource("2_iuonh")]
+position = Vector2(224, 363)
+
+[node name="Spawner" parent="." instance=ExtResource("4_l3cfh")]
+
+[node name="Ground" parent="." instance=ExtResource("5_6q06x")]
+position = Vector2(0, 818)
+
+[node name="GameUI" parent="." instance=ExtResource("6_ow5a4")]
+
+[connection signal="on_game_started" from="Player" to="." method="_on_player_on_game_started"]
+[connection signal="on_obstacle_crash" from="Spawner" to="." method="_on_spawner_on_obstacle_crash"]
+[connection signal="on_player_score" from="Spawner" to="." method="_on_spawner_on_player_score"]
+[connection signal="on_player_crash" from="Ground" to="." method="_on_ground_on_player_crash"]

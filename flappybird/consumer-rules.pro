@@ -1,0 +1,1 @@
+-keep class pelkidev.com.mx.flappybird.FlappyBirdGameModule { *; }

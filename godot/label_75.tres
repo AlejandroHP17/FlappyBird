@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://umj3xjnkkqwo"]
+
+[ext_resource type="FontFile" uid="uid://due6jbyye53ld" path="res://Flappy Bird Assets/Fonts/font_score.ttf" id="1_hrjtf"]
+
+[resource]
+font = ExtResource("1_hrjtf")
+font_size = 75
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
