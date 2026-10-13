@@ -27,6 +27,9 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          # 'tools' ya no existe en sdkmanager y rompe el job
+          packages: platform-tools
 
       - name: Make gradlew executable
         run: chmod +x gradlew
@@ -39,6 +42,7 @@ jobs:
             echo "::error::Falta el secret GH_PACKAGES_TOKEN."
             exit 1
           fi
+          echo "GH_PACKAGES_TOKEN presente (${#GH_PACKAGES_TOKEN} chars)."
 
       - name: Build and test
         env:
