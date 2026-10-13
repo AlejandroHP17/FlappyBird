@@ -149,8 +149,8 @@ private fun GameOverOverlay(
 ) {
     val medal = remember(score) {
         when {
-            score >= 4 -> R.drawable.flappybird_medal_gold
-            score >= 2 -> R.drawable.flappybird_medal_silver
+            score >= 20 -> R.drawable.flappybird_medal_gold
+            score >= 10 -> R.drawable.flappybird_medal_silver
             else -> R.drawable.flappybird_medal_bronze
         }
     }
