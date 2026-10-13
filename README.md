@@ -11,7 +11,7 @@ El prototipo Godot 4 queda en [`godot/`](godot/) como referencia de diseño/mec�
 | Group | `pelkidev.com.mx.minijuegos` |
 | Artifact | `flappybird` |
 | Versión | `1.0.0-SNAPSHOT` |
-| Packages | `https://maven.pkg.github.com/AlejandroHP17/FlappyBirdCopy` |
+| Packages | `https://maven.pkg.github.com/AlejandroHP17/FlappyBird` |
 
 Depende de: `pelkidev.com.mx.minijuegos:sdk:1.0.0`
 

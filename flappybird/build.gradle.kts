@@ -5,7 +5,7 @@ plugins {
 }
 
 val githubOwner = "AlejandroHP17"
-val githubRepo = "FlappyBirdCopy"
+val githubRepo = "FlappyBird"
 val publishVersion =
     providers.environmentVariable("PUBLISH_VERSION").orElse("1.0.0-SNAPSHOT").get()
 
