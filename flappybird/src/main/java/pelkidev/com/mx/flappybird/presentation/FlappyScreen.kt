@@ -23,16 +23,21 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
@@ -81,16 +86,23 @@ fun FlappyScreen(
         }
 
         if (!state.isGameOver) {
-            Text(
-                text = state.score.toString(),
+            Surface(
                 modifier = Modifier
                     .align(Alignment.TopCenter)
                     .statusBarsPadding()
-                    .padding(top = 16.dp),
-                color = Color.White,
-                fontSize = 48.sp,
-                fontWeight = FontWeight.Bold,
-            )
+                    .padding(top = 12.dp)
+                    .shadow(6.dp, RoundedCornerShape(16.dp)),
+                color = Color.Black.copy(alpha = 0.35f),
+                shape = RoundedCornerShape(16.dp),
+            ) {
+                Text(
+                    text = state.score.toString(),
+                    modifier = Modifier.padding(horizontal = 20.dp, vertical = 6.dp),
+                    color = Color.White,
+                    fontSize = 36.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+            }
         }
 
         IconButton(
@@ -98,7 +110,9 @@ fun FlappyScreen(
             modifier = Modifier
                 .align(Alignment.TopStart)
                 .statusBarsPadding()
-                .padding(4.dp),
+                .padding(8.dp)
+                .shadow(4.dp, CircleShape)
+                .background(Color.Black.copy(alpha = 0.35f), CircleShape),
         ) {
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
@@ -205,13 +219,23 @@ private fun GameOverOverlay(
                 )
             }
         }
-        Spacer(modifier = Modifier.height(16.dp))
-        TextButton(onClick = onRestart) {
+        Spacer(modifier = Modifier.height(20.dp))
+        Button(
+            onClick = onRestart,
+            modifier = Modifier
+                .fillMaxWidth(0.7f)
+                .height(52.dp),
+            shape = RoundedCornerShape(16.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(0xFFE85D04),
+                contentColor = Color.White,
+            ),
+            elevation = ButtonDefaults.buttonElevation(defaultElevation = 6.dp),
+        ) {
             Text(
                 text = stringResource(R.string.flappybird_play_again),
-                color = Color.White,
                 fontWeight = FontWeight.Bold,
-                fontSize = 20.sp,
+                fontSize = 18.sp,
             )
         }
     }

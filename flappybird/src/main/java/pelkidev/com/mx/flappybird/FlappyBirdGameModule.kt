@@ -8,7 +8,7 @@ import pelkidev.com.mx.minijuegos.sdk.GameModule
 object FlappyBirdGameModule : GameModule {
     override val id: String = "flappybird"
     override val title: String = "Flappy Bird"
-    override val description: String = "Esquiva las rocas y supera tu récord"
+    override val description: String = "Toca para volar, esquiva las rocas y bate tu récord"
 
     @Composable
     override fun Entry(onExit: () -> Unit) {
